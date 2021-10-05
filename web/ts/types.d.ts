@@ -34,7 +34,3 @@ declare interface OctoUser {
 	name: string;
 	permissions: string[];
 }
-
-declare interface Window {
-    user: OctoUser;
-}

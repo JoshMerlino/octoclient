@@ -6,7 +6,7 @@ export default async function api(path: string, params: RequestInit = {}): Promi
 		mode: "cors",
 		headers: {
 			"Content-Type": "application/json",
-			"X-Api-Key": "B79BAF95899747859D04C47EE4F17C89"
+			"Authorization": `Bearer ${localStorage.getItem("api-key")}`
 		}
 	}));
 }

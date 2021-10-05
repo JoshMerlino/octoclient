@@ -1,11 +1,11 @@
-import app from "../src/app";
-import React, { useEffect, useState } from "react";
-import { Spinner, ThemeProvider, VHCenter } from "photoncss/lib/react";
-import { Route, Switch } from "react-router-dom";
-import Router from "./Router";
-import Toolbar from "components/Toolbar";
-import api from "./util/api";
 import Authorize from "components/Authorize";
+import Toolbar from "components/Toolbar";
+import { Spinner, VHCenter } from "photoncss/lib/react";
+import React, { useEffect, useState } from "react";
+import { Route, Switch } from "react-router-dom";
+import app from "../src/app";
+import Router from "./Router";
+import api from "./util/api";
 
 type Props = { views: View[] };
 export default function Runtime({ views }: Props): JSX.Element | null {
@@ -87,7 +87,7 @@ export default function Runtime({ views }: Props): JSX.Element | null {
 				{ state === false ? <>
 					<Authorize setter={setState}/>
 				</> : <>
-					<Toolbar/>
+					<Toolbar setter={setState}/>
 					<main>
 						{ views.map(({ route, default: view }, key) =>
 							<Route

@@ -5,7 +5,8 @@ import React, { useEffect, useState } from "react";
 export type Theme = "light" | "dark" | "auto";
 export const themes: Theme[] = [ "light", "dark", "auto" ];
 
-export default function ThemeSwitcher(): JSX.Element {
+export type Props = { providerOnly?: boolean }
+export default function ThemeSwitcher({ providerOnly = false }: Props): JSX.Element | null {
 
 	// Get Theme
 	const [ theme, __setTheme ] = useState<Theme>((localStorage.getItem("theme") || "auto") as Theme);
@@ -30,6 +31,12 @@ export default function ThemeSwitcher(): JSX.Element {
 		setTheme(theme);
 	});
 
+	function next() {
+		setTheme(themes[themes.indexOf(theme) + 1] || themes[0]);
+	}
+
+	if (providerOnly) return null;
+
 	const id = guid();
 
 	useEffect(function() {
@@ -41,10 +48,6 @@ export default function ThemeSwitcher(): JSX.Element {
 			}
 		};
 	});
-
-	function next() {
-		setTheme(themes[themes.indexOf(theme) + 1] || themes[0]);
-	}
 
 	// Return toggler
 	return (

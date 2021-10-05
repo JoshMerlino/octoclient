@@ -3,12 +3,16 @@ import React, { useState } from "react";
 import api from "../runtime/util/api";
 import app from "../src/app";
 import Photon from "photoncss";
+import useUser from "../runtime/util/useUser";
 
 export type ComponentProps = {
-	setter: React.Dispatch<React.SetStateAction<any>>
+	setter: React.Dispatch<React.SetStateAction<boolean | null>>
 };
 
-export default function Component({ setter }: ComponentProps): JSX.Element {
+export default function Authorize({ setter }: ComponentProps): JSX.Element {
+
+	// Initialize user
+	const [ , setUser ] = useUser();
 
 	// Initialize states
 	const [ isLoading, setIsLoading ] = useState(false);
@@ -31,14 +35,16 @@ export default function Component({ setter }: ComponentProps): JSX.Element {
 		})
 			.then(response => response.json())
 			.then(response => {
-				setIsLoading(false);
 				if (response.hasOwnProperty("error")) {
 					return Photon.Snackbar(<Snackbar>
 						<p>{response.error}</p>
 					</Snackbar>,
 					{ duration: 10000 }).show();
 				}
-				console.log(response);
+				localStorage.setItem("api-key", response.apikey);
+				setUser(response);
+				setIsLoading(false);
+				setter(true);
 			});
 	}
 
@@ -69,6 +75,7 @@ export default function Component({ setter }: ComponentProps): JSX.Element {
 					variant="outlined">Password</InputField>
 				<Switch
 					id="rememberme"
+					defaultChecked={true}
 					color={isLoading ? "none" : "primary"}
 					disabled={isLoading}>Remember Me</Switch>
 				<Button
