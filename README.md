@@ -1,7 +1,6 @@
 # octoprint-client
 ### Checks
 * [![Code Style Analysis](https://github.com/JoshMerlino/octoprint-client/actions/workflows/code-style-analysis.yml/badge.svg)](https://github.com/JoshMerlino/octoprint-client/actions/workflows/code-style-analysis.yml)
-* [![Code Quality Analysis](https://github.com/JoshMerlino/octoprint-client/actions/workflows/code-quality-analysis.yml/badge.svg)](https://github.com/JoshMerlino/octoprint-client/actions/workflows/code-quality-analysis.yml)
 * [![public_html](https://github.com/JoshMerlino/octoprint-client/actions/workflows/public-html.yml/badge.svg)](https://github.com/JoshMerlino/octoprint-client/actions/workflows/public-html.yml)
 * [![Test CI](https://github.com/JoshMerlino/octoprint-client/actions/workflows/test-ci.yml/badge.svg)](https://github.com/JoshMerlino/octoprint-client/actions/workflows/test-ci.yml)
 
