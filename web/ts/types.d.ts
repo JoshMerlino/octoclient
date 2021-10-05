@@ -28,3 +28,13 @@ declare interface AppManifest {
 
 declare const APP_MANIFEST: AppManifest;
 declare const APP_CONFIG: any;
+
+declare interface OctoUser {
+	groups: string[];
+	name: string;
+	permissions: string[];
+}
+
+declare interface Window {
+    user: OctoUser;
+}
