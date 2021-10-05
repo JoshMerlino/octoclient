@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import api from "./api";
+import api from "../api";
 
 export default function useUser(): [ OctoUser | null | false, React.Dispatch<React.SetStateAction<OctoUser | null | false>> ] {
 	const [ state, setState ] = useState<OctoUser | null | false>(null);

@@ -1,5 +1,7 @@
+import ConnectionPanel from "components/panel/Connection";
+import { Col, Container, Row } from "photoncss/lib/react";
 import React from "react";
-import useUser from "../runtime/util/useUser";
+import useUser from "../runtime/util/hooks/useUser";
 
 export const route = "/";
 
@@ -10,8 +12,14 @@ export default function View(): JSX.Element | null {
 	if (!user) return null;
 
 	return (
-		<>
-			<p>Hello { user.name }</p>
-		</>
+		<Container>
+			<Row>
+
+				<Col sm={12} lg={4} xl={3}>
+					<ConnectionPanel/>
+				</Col>
+
+			</Row>
+		</Container>
 	);
 }

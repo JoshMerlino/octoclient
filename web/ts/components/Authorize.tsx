@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import api from "../runtime/util/api";
 import app from "../src/app";
 import Photon from "photoncss";
-import useUser from "../runtime/util/useUser";
+import useUser from "../runtime/util/hooks/useUser";
 
 export type ComponentProps = {
 	setter: React.Dispatch<React.SetStateAction<boolean | null>>
@@ -65,14 +65,12 @@ export default function Authorize({ setter }: ComponentProps): JSX.Element {
 					id="username"
 					type="text"
 					color={isLoading ? "none" : "primary"}
-					disabled={isLoading}
-					variant="outlined">Username</InputField>
+					disabled={isLoading}>Username</InputField>
 				<InputField
 					id="password"
 					type="password"
 					color={isLoading ? "none" : "primary"}
-					disabled={isLoading}
-					variant="outlined">Password</InputField>
+					disabled={isLoading}>Password</InputField>
 				<Switch
 					id="rememberme"
 					defaultChecked={true}

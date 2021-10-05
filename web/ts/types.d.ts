@@ -34,3 +34,24 @@ declare interface OctoUser {
 	name: string;
 	permissions: string[];
 }
+
+declare interface OctoConnection {
+	current: {
+        state: string;
+        port: string;
+        baudrate: number;
+        printerProfile: string;
+    },
+	options: {
+		ports: string[];
+        baudrates: number[];
+        printerProfiles: {
+			name: string;
+			id: string;
+		}[];
+        portPreference: string;
+        baudratePreference: number;
+        printerProfilePreference: string;
+        autoconnect: boolean;
+	}
+}

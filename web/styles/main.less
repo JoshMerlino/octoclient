@@ -13,3 +13,34 @@
 		}
 	}
 }
+
+.photon-toolbar:not(.variant-raised) {
+	border-bottom: 1px solid var(--palette_divider) !important;
+}
+
+.photon-card {
+	overflow: visible;
+}
+
+.card-input-wrapper {
+	margin: 0 8px;
+	margin-top: -24px;
+	margin-bottom: -12px;
+	position: relative;
+	overflow: visible !important;
+	.photon-menu {
+		top: 30px !important;
+		left: 8px !important;
+		max-height: 440px;
+		overflow-y: auto;
+	}
+	.photon-input {
+		width: -webkit-fill-available;
+		input {
+			width: -webkit-fill-available;
+		}
+		label {
+			background: var(--palette_sheet_background);
+		}
+	}
+}

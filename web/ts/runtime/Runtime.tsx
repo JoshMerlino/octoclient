@@ -1,4 +1,5 @@
 import Authorize from "components/Authorize";
+import Footer from "components/Footer";
 import Toolbar from "components/Toolbar";
 import { Spinner, VHCenter } from "photoncss/lib/react";
 import React, { useEffect, useState } from "react";
@@ -73,32 +74,31 @@ export default function Runtime({ views }: Props): JSX.Element | null {
 
 	}, []);
 
-	// If loading return a spinner
-	if (state === null) return (
-		<VHCenter>
-			<Spinner/>
-		</VHCenter>
-	);
-
 	// Render router
 	return (
 		<Router>
-			<Switch>
-				{ state === false ? <>
-					<Authorize setter={setState}/>
-				</> : <>
-					<Toolbar setter={setState}/>
-					<main>
-						{ views.map(({ route, default: view }, key) =>
+			<main>
+				<Switch>
+					{ state === false ? <>
+						<Authorize setter={setState}/>
+					</> : <>
+						<Toolbar setter={setState}/>
+						<br />
+						{ state === null ? <>
+							<VHCenter>
+								<Spinner/>
+							</VHCenter>
+						</> : views.map(({ route, default: view }, key) =>
 							<Route
 								key={key}
 								path={route}
 								exact={true}
 								component={view as unknown as React.ComponentType}/>
 						) }
-					</main>
-				</> }
-			</Switch>
+					</> }
+				</Switch>
+			</main>
+			<Footer/>
 		</Router>
 	);
 
