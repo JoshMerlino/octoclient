@@ -11,6 +11,7 @@ import "./runtime/util/offlineInstaller";
 import "photoncss/dist/photon.css";
 import "../../styles/main.less";
 import ErrorBoundry from "./runtime/ErrorBoundry";
+import { ThemeProvider } from "photoncss/lib/react";
 
 // Import all views
 const views: View[] = [];
@@ -27,10 +28,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	// Render root component into react-root container
 	render(
-		<ErrorBoundry>
-			<Runtime views={views}/>
-			<PWAInstaller/>
-		</ErrorBoundry>,
+		<ThemeProvider>
+			<ErrorBoundry>
+				<Runtime views={views}/>
+				<PWAInstaller/>
+			</ErrorBoundry>
+		</ThemeProvider>,
 		document.getElementById("root"));
 
 });

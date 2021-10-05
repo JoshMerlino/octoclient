@@ -1,0 +1,4 @@
+# Configuration for the OctoPrint Server
+octoprint:
+  hostname: 'joshm.us.to'
+  port: 5000

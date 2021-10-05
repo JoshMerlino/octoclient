@@ -1,11 +1,17 @@
 import app from "../src/app";
-import React, { useEffect } from "react";
-import { ThemeProvider } from "photoncss/lib/react";
-import { Route } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Spinner, ThemeProvider, VHCenter } from "photoncss/lib/react";
+import { Route, Switch } from "react-router-dom";
 import Router from "./Router";
+import Toolbar from "components/Toolbar";
+import api from "./util/api";
+import Authorize from "components/Authorize";
 
 type Props = { views: View[] };
-export default function Runtime({ views }: Props): JSX.Element {
+export default function Runtime({ views }: Props): JSX.Element | null {
+
+	// Initialize state
+	const [ state, setState ] = useState<null | boolean>(null);
 
 	// On mount
 	useEffect(function() {
@@ -38,23 +44,62 @@ export default function Runtime({ views }: Props): JSX.Element {
 
 			}
 		}());
-	});
+	}, []);
+
+	// Fetch current user
+	useEffect(function() {
+
+		// Attempt to get current user
+		api("/api/login", {
+			method: "POST",
+			body: JSON.stringify({ passive: true })
+		})
+			.then(response => response.json())
+			.then(response => {
+
+				// If not logged in
+				if ("error" in response) return setState(false);
+				api("/api/currentuser")
+					.then(response => response.json())
+					.then(response => {
+						if ("error" in response) return setState(false);
+						if (response.name === null) return setState(false);
+						// eslint-disable-next-line no-extra-parens
+						(window as any).user = response;
+						setState(true);
+					});
+
+			});
+
+	}, []);
+
+	// If loading return a spinner
+	if (state === null) return (
+		<VHCenter>
+			<Spinner/>
+		</VHCenter>
+	);
 
 	// Render router
 	return (
-		<ThemeProvider global>
-			<Router>
-				<main>
-					{ views.map(({ route, default: view }, key) =>
-						<Route
-							key={key}
-							path={route}
-							exact={true}
-							component={view as unknown as React.ComponentType}/>
-					) }
-				</main>
-			</Router>
-		</ThemeProvider>
+		<Router>
+			<Switch>
+				{ state === false ? <>
+					<Authorize setter={setState}/>
+				</> : <>
+					<Toolbar/>
+					<main>
+						{ views.map(({ route, default: view }, key) =>
+							<Route
+								key={key}
+								path={route}
+								exact={true}
+								component={view as unknown as React.ComponentType}/>
+						) }
+					</main>
+				</> }
+			</Switch>
+		</Router>
 	);
 
 }
