@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import api from "../api";
 
-export default function useConnection(): [ OctoConnection | null | false, React.Dispatch<React.SetStateAction<OctoConnection | null | false>> ] {
+export default function useConnection(): [ OctoConnection | null | false, React.Dispatch<React.SetStateAction<OctoConnection | null | false>>, () => void ] {
 	const [ state, setState ] = useState<OctoConnection | null | false>(null);
 
-	useEffect(function() {
+	function refresh() {
 		api("/api/connection")
 			.then(response => response.json())
 			.then(response => {
@@ -12,7 +12,9 @@ export default function useConnection(): [ OctoConnection | null | false, React.
 				if (response.name === null) return setState(false);
 				setState(<OctoConnection>response);
 			});
-	}, []);
+	}
 
-	return [ state, setState ];
+	useEffect(refresh, []);
+
+	return [ state, setState, refresh ];
 }
