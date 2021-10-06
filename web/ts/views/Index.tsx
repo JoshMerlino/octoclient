@@ -7,16 +7,19 @@ export const route = "/";
 
 export default function View(): JSX.Element | null {
 
+	// Ensure user is logged in
 	const [ user ] = useAPI<OctoUser>("/api/currentuser");
-
 	if (!user) return null;
 
+	// Return view
 	return (
 		<Container>
 			<Row>
 
 				<Col sm={12} lg={4} xl={3}>
 					<ConnectionPanel/>
+				</Col>
+				<Col sm={12} lg={8} xl={9}>
 				</Col>
 
 			</Row>
