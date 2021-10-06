@@ -1,7 +1,7 @@
 import ConnectionPanel from "components/panel/Connection";
 import { Col, Container, Row } from "photoncss/lib/react";
 import React from "react";
-import useAPI from "../runtime/util/hooks/useAPI";
+import useAPI from "runtime/util/hooks/useAPI";
 
 export const route = "/";
 

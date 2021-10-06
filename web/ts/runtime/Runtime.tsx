@@ -4,7 +4,7 @@ import Toolbar from "components/Toolbar";
 import { Spinner, VHCenter } from "photoncss/lib/react";
 import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
-import app from "../src/app";
+import app from "src/app";
 import Router from "./Router";
 import api from "./util/api";
 

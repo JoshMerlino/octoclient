@@ -1,7 +1,7 @@
 import { Button, Card, CardActions, CardTitle, InputField, Spinner } from "photoncss/lib/react";
 import React, { useState } from "react";
-import useAPI from "../../runtime/util/hooks/useAPI";
-import api from "../../runtime/util/api";
+import useAPI from "runtime/util/hooks/useAPI";
+import api from "runtime/util/api";
 
 export default function ConnectionPanel(): JSX.Element {
 

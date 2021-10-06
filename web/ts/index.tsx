@@ -8,9 +8,9 @@ import { render } from "react-dom";
 // Import scripts
 import "script-loader!jquery";
 import "../../styles/main.less";
-import ErrorBoundry from "./runtime/ErrorBoundry";
-import Runtime from "./runtime/Runtime";
-import "./runtime/util/offlineInstaller";
+import ErrorBoundry from "runtime/ErrorBoundry";
+import Runtime from "runtime/Runtime";
+import "runtime/util/offlineInstaller";
 
 // Import all views
 const views: View[] = [];

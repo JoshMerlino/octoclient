@@ -1,9 +1,9 @@
 import { Button, InputField, Snackbar, Switch, VHCenter } from "photoncss/lib/react";
 import React, { useState } from "react";
-import api from "../runtime/util/api";
-import app from "../src/app";
+import api from "runtime/util/api";
+import app from "src/app";
 import Photon from "photoncss";
-import useAPI from "../runtime/util/hooks/useAPI";
+import useAPI from "runtime/util/hooks/useAPI";
 
 export type ComponentProps = {
 	setter: React.Dispatch<React.SetStateAction<boolean | null>>
