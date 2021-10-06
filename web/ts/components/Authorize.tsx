@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import api from "../runtime/util/api";
 import app from "../src/app";
 import Photon from "photoncss";
-import useUser from "../runtime/util/hooks/useUser";
+import useAPI from "../runtime/util/hooks/useAPI";
 
 export type ComponentProps = {
 	setter: React.Dispatch<React.SetStateAction<boolean | null>>
@@ -12,7 +12,7 @@ export type ComponentProps = {
 export default function Authorize({ setter }: ComponentProps): JSX.Element {
 
 	// Initialize user
-	const [ , setUser ] = useUser();
+	const [ ,, setUser ] = useAPI<OctoUser>("/api/currentuser", { method: "GET" });
 
 	// Initialize states
 	const [ isLoading, setIsLoading ] = useState(false);

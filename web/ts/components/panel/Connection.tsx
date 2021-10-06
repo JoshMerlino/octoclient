@@ -1,11 +1,11 @@
 import { Button, Card, CardActions, CardTitle, InputField, Spinner } from "photoncss/lib/react";
 import React, { useState } from "react";
-import useConnection from "../../runtime/util/hooks/useConnection";
+import useAPI from "../../runtime/util/hooks/useAPI";
 import api from "../../runtime/util/api";
 
 export default function ConnectionPanel(): JSX.Element {
 
-	const [ connection,, refreshConnection ] = useConnection();
+	const [ connection, refreshConnection ] = useAPI<OctoConnection>("/api/connection");
 	const [ isChanged, setChanged ] = useState(false);
 	const [ isConnected, setConnected ] = useState<null | boolean>(null);
 

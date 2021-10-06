@@ -55,3 +55,11 @@ declare interface OctoConnection {
         autoconnect: boolean;
 	}
 }
+
+declare interface OctoTool {
+	[ key: string ]: {
+		actual: number;
+		target: number | null;
+		offset: number
+  	}
+}

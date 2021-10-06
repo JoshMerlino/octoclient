@@ -1,13 +1,13 @@
 import ConnectionPanel from "components/panel/Connection";
 import { Col, Container, Row } from "photoncss/lib/react";
 import React from "react";
-import useUser from "../runtime/util/hooks/useUser";
+import useAPI from "../runtime/util/hooks/useAPI";
 
 export const route = "/";
 
 export default function View(): JSX.Element | null {
 
-	const [ user ] = useUser();
+	const [ user ] = useAPI<OctoUser>("/api/currentuser");
 
 	if (!user) return null;
 
