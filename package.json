@@ -1,7 +1,8 @@
 {
-	"name": "tsx-app",
+	"name": "octoclient",
+	"display-name": "OctoClient",
 	"version": "1.0.0",
-	"description": "Create fast single-page progressive-web-apps using PhotonCSS 12, React and TypeScript.",
+	"description": "A modern control panel for managing your 3D printers using OctoPrint.",
 	"main": "lib/src",
 	"types": "lib/src",
 	"author": "Josh Merlino",

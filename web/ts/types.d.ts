@@ -57,9 +57,7 @@ declare interface OctoConnection {
 }
 
 declare interface OctoTool {
-	[ key: string ]: {
-		actual: number;
-		target: number | null;
-		offset: number
-  	}
+	actual: number;
+	target: number | null;
+	offset: number;
 }
