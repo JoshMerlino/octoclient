@@ -84,12 +84,15 @@ export default function ConnectionPanel(): JSX.Element {
 
 	}
 
+	// Get if is printing
+	const isPrinting = connection.current.state === "Printing";
+
 	// Return UI
 	return (
 		<Card variant="outlined">
 			<CardTitle subtitle={connection.current.state}>Connection</CardTitle>
 
-			{ connection.current.state === "Printing" && <>
+			{ isPrinting && <>
 				<p>Connection information can not be changed while the printer is printing.</p>
 				<hr style={{ marginTop: 12 }} />
 			</> }
@@ -99,7 +102,7 @@ export default function ConnectionPanel(): JSX.Element {
 					variant="outlined"
 					color="primary"
 					id="serial-port"
-					disabled={connection.current.state === "Printing"}
+					disabled={isPrinting}
 					onChange={ () => setChanged(true) }
 					defaultValue={connection.current.port}
 					dropdown={connection.options.ports}>Serial Port</InputField>
@@ -109,7 +112,7 @@ export default function ConnectionPanel(): JSX.Element {
 					variant="outlined"
 					color="primary"
 					id="baud-rate"
-					disabled={connection.current.state === "Printing"}
+					disabled={isPrinting}
 					onChange={ () => setChanged(true) }
 					defaultValue={connection.current.baudrate}
 					dropdown={connection.options.baudrates.map(a => a.toString()).reverse()}>Baud Rate</InputField>
@@ -120,7 +123,7 @@ export default function ConnectionPanel(): JSX.Element {
 					variant="raised"
 					disabled={!buttonEnabled}
 					onClick={ () => connect() }
-					color={buttonEnabled ? "primary":"none"}>{ isConnected ? "Disconnect" : "Connect" }</Button>
+					color={buttonEnabled ? "primary":"none"}>{ isConnected || isPrinting ? "Disconnect" : "Connect" }</Button>
 			</CardActions>
 
 		</Card>
