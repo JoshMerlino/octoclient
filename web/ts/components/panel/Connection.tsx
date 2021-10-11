@@ -120,7 +120,7 @@ export default function ConnectionPanel(): JSX.Element {
 
 			<CardActions direction="right">
 				<Button
-					variant="raised"
+					variant={buttonEnabled ? "raised":"contained"}
 					disabled={!buttonEnabled}
 					onClick={ () => connect() }
 					color={buttonEnabled ? "primary":"none"}>{ isConnected || isPrinting ? "Disconnect" : "Connect" }</Button>
