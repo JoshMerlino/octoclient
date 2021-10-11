@@ -64,11 +64,13 @@ export default function Authorize({ setter }: ComponentProps): JSX.Element {
 				<InputField
 					id="username"
 					type="text"
+					variant="outlined"
 					color={isLoading ? "none" : "primary"}
 					disabled={isLoading}>Username</InputField>
 				<InputField
 					id="password"
 					type="password"
+					variant="outlined"
 					color={isLoading ? "none" : "primary"}
 					disabled={isLoading}>Password</InputField>
 				<Switch
