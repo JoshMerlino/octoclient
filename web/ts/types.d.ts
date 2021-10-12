@@ -56,7 +56,7 @@ declare interface OctoConnection {
 	}
 }
 
-declare interface OctoTool {
+declare interface OctoTemp {
 	actual: number;
 	target: number | null;
 	offset: number;
