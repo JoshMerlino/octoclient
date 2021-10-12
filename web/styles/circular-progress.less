@@ -1,0 +1,121 @@
+.CircularProgressbar {
+	width: 100%;
+	vertical-align: middle;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+	stroke-linecap: round;
+	transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.CircularProgressbar .CircularProgressbar-trail {
+	stroke: var(--palette_body_hover);
+	stroke-linecap: round;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+	font-size: 18px;
+	text-anchor: middle;
+	transform: translateY(6px);
+	font-family: "Roboto Condensed";
+	font-weight: 700;
+}
+
+.CircularProgressbar .CircularProgressbar-background {
+	fill: var(--palette_body_background);
+}
+
+.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-trail {
+	stroke: transparent;
+}
+
+.prog-blue {
+	.CircularProgressbar .CircularProgressbar-path {
+		stroke: var(--blue);
+	}
+	.CircularProgressbar .CircularProgressbar-text {
+		fill: var(--blue);
+	}
+	.CircularProgressbar.CircularProgressbar-inverted
+		.CircularProgressbar-background {
+		fill: var(--blue);
+	}
+}
+
+.prog-purple {
+	.CircularProgressbar .CircularProgressbar-path {
+		stroke: var(--purple);
+	}
+	.CircularProgressbar .CircularProgressbar-text {
+		fill: var(--purple);
+	}
+	.CircularProgressbar.CircularProgressbar-inverted
+		.CircularProgressbar-background {
+		fill: var(--purple);
+	}
+}
+
+.prog-green {
+	.CircularProgressbar .CircularProgressbar-path {
+		stroke: var(--green);
+	}
+	.CircularProgressbar .CircularProgressbar-text {
+		fill: var(--green);
+	}
+	.CircularProgressbar.CircularProgressbar-inverted
+		.CircularProgressbar-background {
+		fill: var(--green);
+	}
+}
+
+.prog-orange {
+	.CircularProgressbar .CircularProgressbar-path {
+		stroke: var(--orange);
+	}
+	.CircularProgressbar .CircularProgressbar-text {
+		fill: var(--orange);
+	}
+	.CircularProgressbar.CircularProgressbar-inverted
+		.CircularProgressbar-background {
+		fill: var(--orange);
+	}
+}
+
+.prog-red {
+	.CircularProgressbar .CircularProgressbar-path {
+		stroke: var(--red);
+	}
+	.CircularProgressbar .CircularProgressbar-text {
+		fill: var(--red);
+	}
+	.CircularProgressbar.CircularProgressbar-inverted
+		.CircularProgressbar-background {
+		fill: var(--red);
+	}
+}
+
+.prog-yellow {
+	.CircularProgressbar .CircularProgressbar-path {
+		stroke: var(--yellow);
+	}
+	.CircularProgressbar .CircularProgressbar-text {
+		fill: var(--yellow);
+	}
+	.CircularProgressbar.CircularProgressbar-inverted
+		.CircularProgressbar-background {
+		fill: var(--yellow);
+	}
+}
+
+.prog-pink {
+	.CircularProgressbar .CircularProgressbar-path {
+		stroke: var(--pink);
+	}
+	.CircularProgressbar .CircularProgressbar-text {
+		fill: var(--pink);
+	}
+	.CircularProgressbar.CircularProgressbar-inverted
+		.CircularProgressbar-background {
+		fill: var(--pink);
+	}
+}

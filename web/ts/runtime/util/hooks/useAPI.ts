@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import api from "../api";
 
-export default function useAPI<T>(endpoint: string, args?: RequestInit): [ T | null | false, () => void, React.Dispatch<React.SetStateAction<T | null | false>> ] {
+export default function useAPI<T>(endpoint: string, args?: RequestInit): [ T | null | false, () => void, Dispatch<SetStateAction<T | null | false>> ] {
 
 	// Initialize state
 	const [ state, setState ] = useState<T | null | false>(null);
