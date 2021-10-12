@@ -37,7 +37,7 @@ declare interface OctoUser {
 
 declare interface OctoConnection {
 	current: {
-        state: string;
+        state: PrinterState;
         port: string;
         baudrate: number;
         printerProfile: string;
@@ -57,7 +57,27 @@ declare interface OctoConnection {
 }
 
 declare interface OctoTemp {
-	actual: number;
+	actual: number | null;
 	target: number | null;
 	offset: number;
+}
+
+declare type PrinterState = "Operational" | "Printing" | "Detecting serial connection" | "Cancelling" | "";
+
+declare interface OctoState {
+	temperature: Record<string, OctoTemp>;
+	state: {
+		text: PrinterState,
+		flags: {
+			operational: boolean,
+			paused: boolean,
+			printing: boolean,
+			cancelling: boolean,
+			pausing: boolean,
+			sdReady: boolean,
+			error: boolean,
+			ready: boolean,
+			closedOrError: boolean
+		}
+	}
 }
