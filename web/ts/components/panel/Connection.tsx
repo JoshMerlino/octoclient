@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardTitle, InputField, Snackbar, Spinner } from "photoncss/lib/react";
+import { Button, Card, CardActions, CardTitle, TextIcon, InputField, Snackbar, Spinner } from "photoncss/lib/react";
 import React, { useState } from "react";
 import Photon from "photoncss";
 import useAPI from "runtime/util/hooks/useAPI";
@@ -7,7 +7,7 @@ import api from "runtime/util/api";
 export default function ConnectionPanel(): JSX.Element {
 
 	// Initialize states.
-	const [ connection, refreshConnection ] = useAPI<OctoConnection>("/api/connection");
+	const [ connection, refreshConnection ] = useAPI<Octo.Connection>("/api/connection");
 	const [ isChanged, setChanged ] = useState(false);
 	const [ isConnected, setConnected ] = useState<null | boolean>(null);
 
@@ -91,6 +91,14 @@ export default function ConnectionPanel(): JSX.Element {
 	return (
 		<Card variant="outlined">
 			<CardTitle subtitle={connection.current.state}>Connection</CardTitle>
+
+			{ isPrinting && <>
+				<p style={{ position: "relative" }}>
+					<TextIcon style={{ position: "absolute", margin: "-4px 0" }} className="error-color material-icons">error_outline</TextIcon>
+					<span style={{ paddingLeft: 32, display: "block" }}>Connection information can not be changed while the printer is printing.</span>
+				</p>
+				<hr style={{ marginTop: 12 }} />
+			</> }
 
 			<div className="card-input-wrapper">
 				<InputField
