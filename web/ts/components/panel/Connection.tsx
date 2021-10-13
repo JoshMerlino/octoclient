@@ -92,11 +92,6 @@ export default function ConnectionPanel(): JSX.Element {
 		<Card variant="outlined">
 			<CardTitle subtitle={connection.current.state}>Connection</CardTitle>
 
-			{ isPrinting && <>
-				<p>Connection information can not be changed while the printer is printing.</p>
-				<hr style={{ marginTop: 12 }} />
-			</> }
-
 			<div className="card-input-wrapper">
 				<InputField
 					variant="outlined"
