@@ -95,7 +95,7 @@ export default function ConnectionPanel(): JSX.Element {
 			{ isPrinting && <>
 				<p style={{ position: "relative" }}>
 					<TextIcon style={{ position: "absolute", margin: "-4px 0" }} className="error-color material-icons">error_outline</TextIcon>
-					<span style={{ paddingLeft: 32, display: "block" }}>Connection information can not be changed while the printer is printing.</span>
+					<span style={{ paddingLeft: 32, display: "block" }}>Connection can not be modified during a print.</span>
 				</p>
 				<hr style={{ marginTop: 12 }} />
 			</> }

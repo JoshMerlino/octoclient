@@ -28,6 +28,9 @@ export default function ControlPanel(): JSX.Element {
 			<Col sm={12} lg={4}>
 				<ConnectionPanel/>
 			</Col>
+			<Col sm={12} lg={8}>
+
+			</Col>
 		</>
 	);
 }
