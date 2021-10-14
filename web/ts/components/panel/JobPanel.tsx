@@ -1,12 +1,11 @@
-import TemperatureMonitor from "components/TemperatureMonitor";
 import { Card, CardTitle, Spinner, TextIcon } from "photoncss/lib/react";
 import React, { useEffect } from "react";
 import useAPI from "runtime/util/hooks/useAPI";
 
-export default function Component(): JSX.Element {
+export default function JobPanel(): JSX.Element {
 
 	// Initialize state
-	const [ state, refresh ] = useAPI<Octo.FullState>("/api/printer");
+	const [ state, refresh ] = useAPI<Octo.Job>("/api/job");
 
 	// Refresh state every second
 	useEffect(function refresher() {
@@ -16,9 +15,9 @@ export default function Component(): JSX.Element {
 	}, []);
 
 	// Show loading spinner if it hasn't resolved yet.
-	if (state === null || state && Object.keys(state.temperature).length === 0) return (
+	if (state === null) return (
 		<Card variant="outlined">
-			<CardTitle>Temperature</CardTitle>
+			<CardTitle>Job</CardTitle>
 			<div style={{ textAlign: "center" }}>
 				<Spinner/>
 			</div>
@@ -26,28 +25,21 @@ export default function Component(): JSX.Element {
 	);
 
 	// Show loading spinner if it hasn't resolved yet.
-	if (state === false) return (
+	if (state === false || state.state !== "Printing") return (
 		<Card variant="outlined">
-			<CardTitle>Temperature</CardTitle>
+			<CardTitle>Job</CardTitle>
 			<p style={{ position: "relative", paddingTop: 4 }}>
 				<TextIcon style={{ position: "absolute", margin: "-4px 0" }} className="error-color material-icons">error_outline</TextIcon>
-				<span style={{ paddingLeft: 32, display: "block" }}>Not connected to a printer.</span>
+				<span style={{ paddingLeft: 32, display: "block" }}>{ state && state.state === "Operational" ? "No jobs active." : "Not connected to a printer."}</span>
 			</p>
 		</Card>
 	);
 
-	// Get temperatures
-	const temperatures = Object.keys(state.temperature)
-		.map(name => ({ ...state.temperature[name], name }));
-
 	// Return panel
 	return (
 		<Card variant="outlined" style={{ paddingBottom: 16 }}>
-			<CardTitle>Temperature</CardTitle>
-			{ temperatures.map((temp, key) => <div key={key}>
-				<TemperatureMonitor {...temp}/>
-				{ key !== temperatures.length -1 && <hr/> }
-			</div>) }
+			<CardTitle>Job</CardTitle>
+			{ JSON.stringify(state) }
 		</Card>
 	);
 }
