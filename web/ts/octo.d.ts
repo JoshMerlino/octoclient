@@ -103,4 +103,31 @@ declare namespace Octo {
 			autoconnect: boolean;
 		};
 	}
+
+	interface Progress {
+		completion: number;
+		filepos: number;
+		printTime: number;
+		printTimeLeft: number;
+	}
+
+	interface File {
+		name: string;
+		origin: "local" | "sd";
+		size: number;
+		date: number;
+	}
+
+	interface Filament {
+		length: number;
+		volume: number;
+	}
+
+	interface Job {
+		file: File;
+		estimatedPrintTime: number;
+		filament: Record<string, Filament>;
+		progress: Progress;
+		state: PrinterState;
+	}
 }
