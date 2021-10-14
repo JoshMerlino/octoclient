@@ -12,6 +12,8 @@ import "../../styles/main.less";
 import ErrorBoundry from "runtime/ErrorBoundry";
 import "runtime/util/offlineInstaller";
 
+console.log(APP_CONFIG);
+
 // Import all views
 const views: View[] = [];
 const importAll = (c: __WebpackModuleApi.RequireContext): void => c.keys().forEach(m => views.push(c(m)));

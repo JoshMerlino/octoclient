@@ -2,3 +2,6 @@
 octoprint:
   hostname: 'joshm.us.to'
   port: 5000
+
+# Interval in ms that OctoClient pulls
+refresh-rate: 1000

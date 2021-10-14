@@ -22,7 +22,7 @@ export default function ConnectionPanel(): JSX.Element {
 	);
 
 	// Initialize connection.
-	if (connection?.current?.state === "Detecting serial connection") setTimeout(refreshConnection, 1000);
+	if (connection?.current?.state === "Detecting serial connection") setTimeout(refreshConnection, APP_CONFIG["refresh-rate"]);
 	if (isConnected === null) setConnected(connection?.current?.state === "Operational");
 
 	// Should button be enabled based on the state.

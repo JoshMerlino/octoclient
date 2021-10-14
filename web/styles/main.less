@@ -56,3 +56,29 @@
 .error-color {
 	color: var(--palette_error);
 }
+
+.temperature {
+	position: relative;
+	height: 64px;
+	.prog-wrapper {
+		position: absolute;
+		height: 64px;
+		width: 64px;
+		margin: 0 16px;
+	}
+	.prog-offset {
+		margin-left: 80px;
+		div span {
+			margin-right: 1rem;
+			margin-left: 1rem;
+			margin-top: 6px;
+			display: inline-block;
+			b {
+				display: block;
+			}
+			p {
+				margin: 0;
+			}
+		}
+	}
+}
