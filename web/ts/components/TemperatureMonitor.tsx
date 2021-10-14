@@ -17,14 +17,14 @@ export default function TemperatureMonitor({ name, actual, target, offset }: Tem
 	return (
 		<div className="temperature">
 			<div className={`prog-wrapper prog-${name.includes("extruder") ? "red":"blue"}`}>
-				<CircularProgressbar value={actual / target * 100} text={`${(Math.min(actual / target, 1) * 100).toFixed(0)}%`}/>
+				<CircularProgressbar value={target === 0 ? 0 : actual / target * 100} text={target === 0 ? "Off" : `${(Math.min(actual / target, 1) * 100).toFixed(0)}%`}/>
 			</div>
 			<div className="prog-offset">
 				<h2>{ name }</h2>
 				<div>
 					<span>
 						<b style={{ width: "100%" }}>Target temperature</b>
-						<p>{ target.toFixed(1) } °C</p>
+						{ target === 0 ? <p>Off</p> : <p>{ target.toFixed(1) } °C</p> }
 					</span>
 					<span>
 						<b style={{ width: "100%" }}>Temperature</b>
