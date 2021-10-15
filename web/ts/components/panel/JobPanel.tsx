@@ -39,7 +39,7 @@ export default function JobPanel(): JSX.Element {
 	return (
 		<Card variant="outlined" style={{ paddingBottom: 16 }}>
 			<CardTitle>Job</CardTitle>
-			{ JSON.stringify(state) }
+			<pre>{ JSON.stringify(state, null, 4) }</pre>
 		</Card>
 	);
 }
