@@ -117,6 +117,29 @@ declare namespace Octo {
 		size: number;
 		date: number;
 		display: string;
+		gcodeAnalysis?: GcodeAnalysis;
+	}
+
+	interface Dimensions {
+		depth: number;
+		height: number;
+		width: number;
+	}
+
+	interface PrintingArea {
+		maxX: number;
+		maxY: number;
+		maxZ: number;
+		minX: number;
+		minY: number;
+		minZ: number;
+	}
+
+	interface GcodeAnalysis {
+		dimensions: Dimensions;
+		estimatedPrintTime: number;
+		filament: Record<string, Filament>;
+		printingArea: PrintingArea;
 	}
 
 	interface Filament {
