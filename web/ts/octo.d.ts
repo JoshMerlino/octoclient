@@ -116,6 +116,7 @@ declare namespace Octo {
 		origin: "local" | "sd";
 		size: number;
 		date: number;
+		display: string;
 	}
 
 	interface Filament {
@@ -127,7 +128,15 @@ declare namespace Octo {
 		file: File;
 		estimatedPrintTime: number;
 		filament: Record<string, Filament>;
+	}
+
+	interface CurrentJob {
+		job: Job;
 		progress: Progress;
 		state: PrinterState;
+	}
+
+	interface Files {
+		files: File[];
 	}
 }

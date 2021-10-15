@@ -5,7 +5,7 @@ import useAPI from "runtime/util/hooks/useAPI";
 export default function JobPanel(): JSX.Element {
 
 	// Initialize state
-	const [ state, refresh ] = useAPI<Octo.Job>("/api/job");
+	const [ state, refresh ] = useAPI<Octo.CurrentJob>("/api/job");
 
 	// Refresh state every second
 	useEffect(function refresher() {
@@ -25,7 +25,7 @@ export default function JobPanel(): JSX.Element {
 	);
 
 	// Show loading spinner if it hasn't resolved yet.
-	if (state === false || state.state !== "Printing") return (
+	if (state === false || state.job?.file?.display === null) return (
 		<Card variant="outlined">
 			<CardTitle>Job</CardTitle>
 			<p style={{ position: "relative", paddingTop: 4 }}>
