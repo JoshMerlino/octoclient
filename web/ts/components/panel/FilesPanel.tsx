@@ -1,3 +1,4 @@
+import FileRoot from "components/FileExplorer/FileRoot";
 import { Card, CardTitle, Spinner, TextIcon } from "photoncss/lib/react";
 import React, { useEffect } from "react";
 import useAPI from "runtime/util/hooks/useAPI";
@@ -38,8 +39,9 @@ export default function FilesPanel(): JSX.Element {
 	// Return panel
 	return (
 		<Card variant="outlined" style={{ paddingBottom: 16 }}>
-			<CardTitle>File Explorer</CardTitle>
-			{ JSON.stringify(state) }
+			<CardTitle seperated={false}>File Explorer</CardTitle>
+			<FileRoot files={ state.files }/>
+			<pre>{ JSON.stringify(state, null, 4) }</pre>
 		</Card>
 	);
 }
