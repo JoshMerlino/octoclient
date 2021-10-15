@@ -2,6 +2,7 @@ import FileRoot from "components/FileExplorer/FileRoot";
 import { Card, CardTitle, Spinner, TextIcon } from "photoncss/lib/react";
 import React, { useEffect } from "react";
 import useAPI from "runtime/util/hooks/useAPI";
+import prettyBytes from "pretty-bytes";
 
 export default function FilesPanel(): JSX.Element {
 
@@ -39,8 +40,8 @@ export default function FilesPanel(): JSX.Element {
 	// Return panel
 	return (
 		<Card variant="outlined" style={{ paddingBottom: 16 }}>
-			<CardTitle seperated={false}>File Explorer</CardTitle>
-			<FileRoot files={ state.files }/>
+			<CardTitle seperated={false} subtitle={`${prettyBytes(state.free)} Remaining`}>File Explorer</CardTitle>
+			<FileRoot {...state}/>
 			<pre>{ JSON.stringify(state, null, 4) }</pre>
 		</Card>
 	);

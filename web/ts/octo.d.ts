@@ -161,5 +161,7 @@ declare namespace Octo {
 
 	interface Files {
 		files: File[];
+		free: number;
+		total: number;
 	}
 }
