@@ -12,7 +12,7 @@ export type ComponentProps = {
 export default function Authorize({ setter }: ComponentProps): JSX.Element {
 
 	// Initialize user
-	const [ ,, setUser ] = useAPI<OctoUser>("/api/currentuser", { method: "GET" });
+	const [ ,, setUser ] = useAPI<Octo.User>("/api/currentuser", { method: "GET" });
 
 	// Initialize states
 	const [ isLoading, setIsLoading ] = useState(false);
