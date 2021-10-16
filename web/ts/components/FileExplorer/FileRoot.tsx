@@ -6,7 +6,7 @@ export type Props = { files: Octo.File[], free: number };
 
 export default function FileRoot({ files }: Props): JSX.Element {
 	return (
-		<List style={{ marginLeft: 0, marginRight: 0, borderLeft: "none", borderRight: "none" }}>
+		<List style={{ margin: " -20px 0", border: "none", maxHeight: 400, overflow: "auto"}}>
 			{ files.map(file => {
 				return <FileEntry {...file} />;
 			})}

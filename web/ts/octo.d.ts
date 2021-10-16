@@ -150,6 +150,7 @@ declare namespace Octo {
 	interface Job {
 		file: File;
 		estimatedPrintTime: number;
+		averagePrintTime?: number;
 		filament: Record<string, Filament>;
 	}
 

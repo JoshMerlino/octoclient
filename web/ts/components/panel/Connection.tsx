@@ -92,14 +92,6 @@ export default function ConnectionPanel(): JSX.Element {
 		<Card variant="outlined">
 			<CardTitle subtitle={connection.current.state}>Connection</CardTitle>
 
-			{ isPrinting && <>
-				<p style={{ position: "relative" }}>
-					<TextIcon style={{ position: "absolute", margin: "-4px 0" }} className="error-color material-icons">error_outline</TextIcon>
-					<span style={{ paddingLeft: 32, display: "block" }}>Connection can not be modified during a print.</span>
-				</p>
-				<hr style={{ marginTop: 12 }} />
-			</> }
-
 			<div className="card-input-wrapper">
 				<InputField
 					variant="outlined"
@@ -120,6 +112,14 @@ export default function ConnectionPanel(): JSX.Element {
 					defaultValue={connection.current.baudrate}
 					dropdown={connection.options.baudrates.map(a => a.toString()).reverse()}>Baud Rate</InputField>
 			</div>
+
+			{ isPrinting && <>
+				<hr style={{ margin: "12px 0" }} />
+				<p style={{ position: "relative" }}>
+					<TextIcon style={{ position: "absolute", margin: "-4px 0" }} className="error-color material-icons">error_outline</TextIcon>
+					<span style={{ paddingLeft: 32, display: "block" }}>Connection can not be modified during a print.</span>
+				</p>
+			</> }
 
 			<CardActions direction="right">
 				<Button

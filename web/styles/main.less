@@ -57,9 +57,10 @@
 	color: var(--palette_error);
 }
 
-.temperature {
+.temperature,
+.prog-container {
 	position: relative;
-	height: 64px;
+	min-height: 64px;
 	.prog-wrapper {
 		position: absolute;
 		height: 64px;
@@ -69,6 +70,7 @@
 	.prog-offset {
 		margin-left: 80px;
 		div span {
+			vertical-align: top;
 			margin-right: 1rem;
 			margin-left: 1rem;
 			margin-top: 6px;
@@ -83,10 +85,20 @@
 	}
 }
 
+.prog-container .prog-offset div span {
+	width: calc(33.33% - 2rem);
+}
+
 .row .col {
 	margin-top: -8px;
 	.photon-card {
 		margin-left: 4px;
 		margin-right: 4px;
+	}
+}
+
+.photon-list {
+	.photon-list-item:not(:last-child) {
+		border-bottom: 1px solid var(--palette_divider);
 	}
 }

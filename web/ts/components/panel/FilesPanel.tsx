@@ -39,10 +39,9 @@ export default function FilesPanel(): JSX.Element {
 
 	// Return panel
 	return (
-		<Card variant="outlined" style={{ paddingBottom: 16 }}>
-			<CardTitle seperated={false} subtitle={`${prettyBytes(state.free)} Remaining`}>File Explorer</CardTitle>
+		<Card variant="outlined" style={{ paddingBottom: 12 }}>
+			<CardTitle subtitle={`${prettyBytes(state.free)} Remaining`}>File Explorer</CardTitle>
 			<FileRoot {...state}/>
-			<pre>{ JSON.stringify(state, null, 4) }</pre>
 		</Card>
 	);
 }

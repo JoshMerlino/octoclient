@@ -12,11 +12,11 @@ export default function ControlPanel(): JSX.Element {
 		<>
 			<Col sm={12} lg={4}>
 				<ConnectionPanel/>
-				<JobPanel/>
+				<FilesPanel/>
 			</Col>
 			<Col sm={12} lg={8}>
 				<TemperaturePanel/>
-				<FilesPanel/>
+				<JobPanel/>
 			</Col>
 		</>
 	);
