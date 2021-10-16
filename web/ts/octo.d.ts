@@ -117,7 +117,7 @@ declare namespace Octo {
 		size: number;
 		date: number;
 		display: string;
-		gcodeAnalysis?: GcodeAnalysis;
+		gcodeAnalysis: GcodeAnalysis;
 	}
 
 	interface Dimensions {
