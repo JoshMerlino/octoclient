@@ -105,7 +105,7 @@ export default function ConnectionPanel(): JSX.Element {
 					variant="outlined"
 					color="primary"
 					id="serial-port"
-					disabled={isPrinting}
+					disabled={isPrinting || isConnected}
 					onChange={ () => setChanged(true) }
 					defaultValue={connection.current.port}
 					dropdown={connection.options.ports}>Serial Port</InputField>
@@ -115,7 +115,7 @@ export default function ConnectionPanel(): JSX.Element {
 					variant="outlined"
 					color="primary"
 					id="baud-rate"
-					disabled={isPrinting}
+					disabled={isPrinting || isConnected}
 					onChange={ () => setChanged(true) }
 					defaultValue={connection.current.baudrate}
 					dropdown={connection.options.baudrates.map(a => a.toString()).reverse()}>Baud Rate</InputField>
