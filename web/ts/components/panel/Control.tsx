@@ -1,8 +1,9 @@
-import { Col } from "photoncss/lib/react";
+import { Col, ListItem, Menu } from "photoncss/lib/react";
 import React from "react";
 import ConnectionPanel from "./Connection";
 import FilesPanel from "./FilesPanel";
 import JobPanel from "./JobPanel";
+import TemperatureMenu from "./TemperatureMenu";
 import TemperaturePanel from "./TemperaturePanel";
 
 export default function ControlPanel(): JSX.Element {
@@ -18,6 +19,9 @@ export default function ControlPanel(): JSX.Element {
 				<TemperaturePanel/>
 				<JobPanel/>
 			</Col>
+
+			<TemperatureMenu/>
+
 		</>
 	);
 }

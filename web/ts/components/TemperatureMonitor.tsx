@@ -1,5 +1,6 @@
 import React from "react";
 import { CircularProgressbar } from "react-circular-progressbar";
+import TemperatureControls from "./TemperatureControls";
 
 export type Temperature = {
     name: string;
@@ -8,15 +9,15 @@ export type Temperature = {
     offset: number;
 };
 
-export default function TemperatureMonitor({ name, actual, target }: Temperature): JSX.Element {
+export default function TemperatureMonitor({ name: realName, actual, target, state }: { state: Octo.State } & Temperature): JSX.Element {
 
 	// Rename tool
-	name = name.replace(/tool/gm, "extruder ").replace(/\s0/gm, "");
+	const name = realName.replace(/tool0/gm, "tool");
 
 	// Return temperature value
 	return (
 		<div className="temperature">
-			<div className={`prog-wrapper prog-${name.includes("extruder") ? "red":name.includes("chamber") ? "purple":"blue"}`}>
+			<div className={`prog-wrapper prog-${name.includes("tool") ? "red":name.includes("chamber") ? "purple":"blue"}`}>
 				<CircularProgressbar value={target === 0 ? 0 : actual / target * 100} text={target === 0 ? "Off" : `${(Math.min(actual / target, 1) * 100).toFixed(0)}%`}/>
 			</div>
 			<div className="prog-offset">
@@ -29,6 +30,15 @@ export default function TemperatureMonitor({ name, actual, target }: Temperature
 					<span>
 						<b style={{ width: "100%" }}>Temperature</b>
 						<p>{ actual.toFixed(1) } °C</p>
+					</span>
+					<span style={{
+						flexGrow: 1,
+						display: "block",
+						marginTop: "-62px",
+						padding: "1rem",
+						transform: "translateY(8px)"
+					}}>
+						{ state.flags.ready && state.flags.operational && <TemperatureControls tool={realName} target={target}/> }
 					</span>
 				</div>
 			</div>

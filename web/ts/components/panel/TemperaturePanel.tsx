@@ -46,7 +46,7 @@ export default function Component(): JSX.Element {
 		<Card variant="outlined" style={{ paddingBottom: 16 }}>
 			<CardTitle>Temperature</CardTitle>
 			{ temperatures.map((temp, key) => <div key={key}>
-				<TemperatureMonitor {...temp}/>
+				<TemperatureMonitor {...temp} state={state.state}/>
 				{ key !== temperatures.length -1 && <hr/> }
 			</div>) }
 			{ !PRODUCTION && <>
