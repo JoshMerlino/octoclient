@@ -8,7 +8,7 @@ export type Temperature = {
     offset: number;
 };
 
-export default function TemperatureMonitor({ name, actual, target, offset }: Temperature): JSX.Element {
+export default function TemperatureMonitor({ name, actual, target }: Temperature): JSX.Element {
 
 	// Rename tool
 	name = name.replace(/tool/gm, "extruder ").replace(/\s0/gm, "");
@@ -16,7 +16,7 @@ export default function TemperatureMonitor({ name, actual, target, offset }: Tem
 	// Return temperature value
 	return (
 		<div className="temperature">
-			<div className={`prog-wrapper prog-${name.includes("extruder") ? "red":"blue"}`}>
+			<div className={`prog-wrapper prog-${name.includes("extruder") ? "red":name.includes("chamber") ? "purple":"blue"}`}>
 				<CircularProgressbar value={target === 0 ? 0 : actual / target * 100} text={target === 0 ? "Off" : `${(Math.min(actual / target, 1) * 100).toFixed(0)}%`}/>
 			</div>
 			<div className="prog-offset">

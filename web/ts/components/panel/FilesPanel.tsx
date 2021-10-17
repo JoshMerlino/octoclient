@@ -3,6 +3,7 @@ import { Card, CardTitle, Spinner, TextIcon } from "photoncss/lib/react";
 import React, { useEffect } from "react";
 import useAPI from "runtime/util/hooks/useAPI";
 import prettyBytes from "pretty-bytes";
+import Code from "components/Code";
 
 export default function FilesPanel(): JSX.Element {
 
@@ -42,6 +43,9 @@ export default function FilesPanel(): JSX.Element {
 		<Card variant="outlined" style={{ paddingBottom: 12 }}>
 			<CardTitle subtitle={`${prettyBytes(state.free)} Remaining`}>File Explorer</CardTitle>
 			<FileRoot {...state}/>
+			{ !PRODUCTION && <>
+				<hr /><Code language="javascript">{JSON.stringify(state, null, 2)}</Code>
+			</> }
 		</Card>
 	);
 }

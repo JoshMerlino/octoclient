@@ -1,3 +1,4 @@
+import Code from "components/Code";
 import TemperatureMonitor from "components/TemperatureMonitor";
 import { Card, CardTitle, Spinner, TextIcon } from "photoncss/lib/react";
 import React, { useEffect } from "react";
@@ -48,6 +49,9 @@ export default function Component(): JSX.Element {
 				<TemperatureMonitor {...temp}/>
 				{ key !== temperatures.length -1 && <hr/> }
 			</div>) }
+			{ !PRODUCTION && <>
+				<hr /><Code language="javascript">{JSON.stringify(state, null, 2)}</Code>
+			</> }
 		</Card>
 	);
 }

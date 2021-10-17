@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { CircularProgressbar } from "react-circular-progressbar";
 import useAPI from "runtime/util/hooks/useAPI";
 import humanizeDuration from "humanize-duration";
+import Code from "components/Code";
 
 export default function JobPanel(): JSX.Element {
 
@@ -74,6 +75,9 @@ export default function JobPanel(): JSX.Element {
 					</div>
 				</div>
 			</div>
+			{ !PRODUCTION && <>
+				<hr /><Code language="javascript">{JSON.stringify(state, null, 2)}</Code>
+			</> }
 		</Card>
 	);
 

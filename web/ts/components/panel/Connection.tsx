@@ -3,23 +3,24 @@ import React, { useEffect, useState } from "react";
 import Photon from "photoncss";
 import useAPI from "runtime/util/hooks/useAPI";
 import api from "runtime/util/api";
+import Code from "components/Code";
 
 export default function ConnectionPanel(): JSX.Element {
 
 	// Initialize states.
-	const [ connection, refreshConnection ] = useAPI<Octo.Connection>("/api/connection");
+	const [ state, refresh ] = useAPI<Octo.Connection>("/api/connection");
 	const [ isChanged, setChanged ] = useState(false);
 	const [ isConnected, setConnected ] = useState<null | boolean>(null);
 
 	// Refresh state every second
 	useEffect(function refresher() {
-		refreshConnection();
+		refresh();
 		const interval = setTimeout(refresher, APP_CONFIG["refresh-rate"]);
 		return () => clearTimeout(interval);
 	}, []);
 
 	// Show loading spinner if it hasn't resolved yet.
-	if (!connection) return (
+	if (!state) return (
 		<Card variant="outlined">
 			<CardTitle subtitle="Loading...">Connection</CardTitle>
 			<div style={{ textAlign: "center" }}>
@@ -29,16 +30,16 @@ export default function ConnectionPanel(): JSX.Element {
 	);
 
 	// Initialize connection.
-	if (isConnected === null) setConnected(connection?.current?.state === "Operational");
+	if (isConnected === null) setConnected(state?.current?.state === "Operational");
 
 	// Should button be enabled based on the state.
-	const buttonEnabled = (isConnected || isChanged) && !(connection?.current?.state === "Detecting serial connection") && !(connection?.current?.state === "Printing");
+	const buttonEnabled = (isConnected || isChanged) && !(state?.current?.state === "Detecting serial connection") && !(state?.current?.state === "Printing");
 
 	// Function to manage the connection.
 	async function connect() {
 
 		// If the printer is printing, dont fuck with the connection.
-		if (connection && connection?.current?.state === "Printing") return Photon.Snackbar(<Snackbar>
+		if (state && state?.current?.state === "Printing") return Photon.Snackbar(<Snackbar>
 			<p>Printer is currently printing. You must end the current print before the connection is closed.</p>
 		</Snackbar>, { duration: 10000 });
 
@@ -88,12 +89,12 @@ export default function ConnectionPanel(): JSX.Element {
 	}
 
 	// Get if is printing
-	const isPrinting = connection.current.state === "Printing";
+	const isPrinting = state.current.state === "Printing";
 
 	// Return UI
 	return (
 		<Card variant="outlined">
-			<CardTitle subtitle={connection.current.state}>Connection</CardTitle>
+			<CardTitle subtitle={state.current.state}>Connection</CardTitle>
 
 			<div className="card-input-wrapper">
 				<InputField
@@ -102,8 +103,8 @@ export default function ConnectionPanel(): JSX.Element {
 					id="serial-port"
 					disabled={isPrinting || isConnected}
 					onChange={ () => setChanged(true) }
-					defaultValue={connection.current.port}
-					dropdown={connection.options.ports}>Serial Port</InputField>
+					defaultValue={state.current.port}
+					dropdown={state.options.ports}>Serial Port</InputField>
 			</div>
 			<div className="card-input-wrapper">
 				<InputField
@@ -112,8 +113,8 @@ export default function ConnectionPanel(): JSX.Element {
 					id="baud-rate"
 					disabled={isPrinting || isConnected}
 					onChange={ () => setChanged(true) }
-					defaultValue={connection.current.baudrate}
-					dropdown={connection.options.baudrates.map(a => a.toString()).reverse()}>Baud Rate</InputField>
+					defaultValue={state.current.baudrate}
+					dropdown={state.options.baudrates.map(a => a.toString()).reverse()}>Baud Rate</InputField>
 			</div>
 
 			{ isPrinting && <>
@@ -122,6 +123,10 @@ export default function ConnectionPanel(): JSX.Element {
 					<TextIcon style={{ position: "absolute", margin: "-4px 0" }} className="error-color material-icons">error_outline</TextIcon>
 					<span style={{ paddingLeft: 32, display: "block" }}>Connection can not be modified during a print.</span>
 				</p>
+			</> }
+
+			{ !PRODUCTION && <>
+				<hr /><Code language="javascript">{JSON.stringify(state, null, 2)}</Code>
 			</> }
 
 			<CardActions direction="right">

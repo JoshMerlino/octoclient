@@ -1,0 +1,53 @@
+.md-container {
+	pre {
+		padding: 24px;
+		overflow: auto;
+		code {
+			border: none;
+			border-radius: 0;
+			padding: 0;
+			background: transparent;
+			color: var(--palette_body_body);
+			line-height: 1.5;
+
+			.token.string {
+				color: var(--green);
+			}
+
+			.token.boolean,
+			.token.number {
+				color: var(--orange);
+			}
+
+			.token.punctuation {
+				color: var(--mono-1);
+			}
+
+			.token.operator {
+				color: var(--cyan);
+			}
+
+			.token.keyword {
+				color: var(--purple);
+			}
+
+			.token.constant {
+				color: var(--yellow);
+			}
+
+			.token.function {
+				color: var(--blue);
+			}
+		}
+	}
+}
+
+.photon-card {
+	.only-code .md-container pre {
+		max-height: 500px;
+		margin: -16px 0;
+	}
+	.only-code + .card-actions {
+		margin-top: 16px;
+	}
+}
