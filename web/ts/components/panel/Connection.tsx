@@ -1,5 +1,5 @@
 import { Button, Card, CardActions, CardTitle, TextIcon, InputField, Snackbar, Spinner } from "photoncss/lib/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Photon from "photoncss";
 import useAPI from "runtime/util/hooks/useAPI";
 import api from "runtime/util/api";
@@ -10,6 +10,13 @@ export default function ConnectionPanel(): JSX.Element {
 	const [ connection, refreshConnection ] = useAPI<Octo.Connection>("/api/connection");
 	const [ isChanged, setChanged ] = useState(false);
 	const [ isConnected, setConnected ] = useState<null | boolean>(null);
+
+	// Refresh state every second
+	useEffect(function refresher() {
+		refreshConnection();
+		const interval = setTimeout(refresher, APP_CONFIG["refresh-rate"]);
+		return () => clearTimeout(interval);
+	}, []);
 
 	// Show loading spinner if it hasn't resolved yet.
 	if (!connection) return (
@@ -22,7 +29,6 @@ export default function ConnectionPanel(): JSX.Element {
 	);
 
 	// Initialize connection.
-	if (connection?.current?.state === "Detecting serial connection") setTimeout(refreshConnection, APP_CONFIG["refresh-rate"]);
 	if (isConnected === null) setConnected(connection?.current?.state === "Operational");
 
 	// Should button be enabled based on the state.
@@ -78,9 +84,6 @@ export default function ConnectionPanel(): JSX.Element {
 			setChanged(true);
 
 		}
-
-		// Refresh the connection status with the latest information from the server.
-		refreshConnection();
 
 	}
 
