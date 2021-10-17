@@ -125,10 +125,6 @@ export default function ConnectionPanel(): JSX.Element {
 				</p>
 			</> }
 
-			{ !PRODUCTION && <>
-				<hr /><Code language="javascript">{JSON.stringify(state, null, 2)}</Code>
-			</> }
-
 			<CardActions direction="right">
 				<Button
 					variant={buttonEnabled ? "raised":"contained"}

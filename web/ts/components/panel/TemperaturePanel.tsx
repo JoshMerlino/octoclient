@@ -49,9 +49,6 @@ export default function Component(): JSX.Element {
 				<TemperatureMonitor {...temp} state={state.state}/>
 				{ key !== temperatures.length -1 && <hr/> }
 			</div>) }
-			{ !PRODUCTION && <>
-				<hr /><Code language="javascript">{JSON.stringify(state, null, 2)}</Code>
-			</> }
 		</Card>
 	);
 }
