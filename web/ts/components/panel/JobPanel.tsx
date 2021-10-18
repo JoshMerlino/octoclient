@@ -75,6 +75,8 @@ export default function JobPanel(): JSX.Element {
 					</div>
 				</div>
 			</div>
+			<hr />
+			<Code language="json">{JSON.stringify(state, null, 4)}</Code>
 		</Card>
 	);
 

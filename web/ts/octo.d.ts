@@ -117,6 +117,11 @@ declare namespace Octo {
 		size: number;
 		date: number;
 		display: string;
+		hash: string;
+		refs: {
+			download: string;
+			resource: string;
+		}
 		gcodeAnalysis: GcodeAnalysis;
 	}
 
