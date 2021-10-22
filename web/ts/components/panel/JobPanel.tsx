@@ -4,6 +4,7 @@ import { CircularProgressbar } from "react-circular-progressbar";
 import useAPI from "runtime/util/hooks/useAPI";
 import humanizeDuration from "humanize-duration";
 import Code from "components/Code";
+import api from "runtime/util/api";
 
 export default function JobPanel(): JSX.Element {
 
@@ -43,15 +44,20 @@ export default function JobPanel(): JSX.Element {
 		.map(({ length }) => length)
 		.reduce((a, b) => a + b, 0));
 
-	// If ready to print
-	// ; if (state.progress.completion === null && (state.job?.file?.name ?? false))
+	// Printer functions
+	async function command(command: string, action?: string) {
+		await api("/api/job", {
+			method: "POST",
+			body: JSON.stringify({ command, action })
+		})
+	}
 
 	return (
-		<Card variant="outlined" style={{ paddingBottom: 16 }}>
-			<CardTitle>Job</CardTitle>
+		<Card variant="outlined">
+			<CardTitle subtitle={state.state}>Job</CardTitle>
 			<div className="prog-container">
 				<div className="prog-wrapper prog-yellow">
-					<CircularProgressbar value={state.progress.completion} text={`${Math.min(state.progress.completion, 100).toFixed(0)}%`}/>
+					<CircularProgressbar value={state.progress.completion >= 100 ? 0 : state.progress.completion} text={state.progress.completion >= 100 ? "Done":`${Math.min(state.progress.completion, 100).toFixed(0)}%`}/>
 				</div>
 				<div className="prog-offset">
 					<h2>{ state.job.file.display }</h2>
@@ -75,8 +81,17 @@ export default function JobPanel(): JSX.Element {
 					</div>
 				</div>
 			</div>
-			<hr />
-			<Code language="json">{JSON.stringify(state, null, 4)}</Code>
+			<CardActions>
+
+				{ state.state === "Operational" && <Button variant="outlined" color="primary" onClick={ () => command("start") }>{ state.progress.completion >= 100 ? "Print again":"Print now"}</Button> }
+				{ state.state === "Paused" && <Button variant="outlined" onClick={ () => command("cancel") }>Abort</Button> }
+				{ state.state === "Paused" && <Button variant="outlined" onClick={ () => command("pause", "resume") }>Resume</Button> }
+				{ state.state === "Pausing" && <Button variant="flat" disabled onClick={ () => command("cancel") }>Abort</Button> }
+				{ state.state === "Pausing" && <Button variant="flat" disabled onClick={ () => command("pause", "pause") }>Pausing</Button> }
+				{ state.state === "Printing" && <Button variant="outlined" onClick={ () => command("cancel") }>Abort</Button> }
+				{ state.state === "Printing" && <Button variant="outlined" onClick={ () => command("pause", "pause") }>Pause</Button> }
+
+			</CardActions>
 		</Card>
 	);
 

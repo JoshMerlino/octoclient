@@ -39,7 +39,7 @@ export default function ConnectionPanel(): JSX.Element {
 	async function connect() {
 
 		// If the printer is printing, dont fuck with the connection.
-		if (state && state?.current?.state === "Printing") return Photon.Snackbar(<Snackbar>
+		if (state && (state?.current?.state === "Printing" || state?.current?.state === "Pausing" || state?.current?.state === "Paused")) return Photon.Snackbar(<Snackbar>
 			<p>Printer is currently printing. You must end the current print before the connection is closed.</p>
 		</Snackbar>, { duration: 10000 });
 
@@ -89,7 +89,7 @@ export default function ConnectionPanel(): JSX.Element {
 	}
 
 	// Get if is printing
-	const isPrinting = state.current.state === "Printing";
+	const isPrinting = state?.current?.state === "Printing" || state?.current?.state === "Pausing" || state?.current?.state === "Paused";
 
 	// Return UI
 	return (
@@ -121,7 +121,7 @@ export default function ConnectionPanel(): JSX.Element {
 				<hr style={{ margin: "12px 0" }} />
 				<p style={{ position: "relative" }}>
 					<TextIcon style={{ position: "absolute", margin: "-4px 0" }} className="error-color material-icons">error_outline</TextIcon>
-					<span style={{ paddingLeft: 32, display: "block" }}>Connection can not be modified during a print.</span>
+					<span style={{ paddingLeft: 32, display: "block" }}>Abort the current print before connecting another printer.</span>
 				</p>
 			</> }
 
