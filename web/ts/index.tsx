@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Render root component into react-root container
 	render(
 		<ErrorBoundry>
+			lmao
 			<Runtime views={views}/>
 			<ThemeSwitcher providerOnly/>
 			<PWAInstaller/>
