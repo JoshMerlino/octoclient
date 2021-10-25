@@ -49,7 +49,7 @@ export default function JobPanel(): JSX.Element {
 		await api("/api/job", {
 			method: "POST",
 			body: JSON.stringify({ command, action })
-		})
+		});
 	}
 
 	return (
@@ -81,15 +81,15 @@ export default function JobPanel(): JSX.Element {
 					</div>
 				</div>
 			</div>
-			<CardActions>
+			<CardActions direction="right">
 
-				{ state.state === "Operational" && <Button variant="outlined" color="primary" onClick={ () => command("start") }>{ state.progress.completion >= 100 ? "Print again":"Print now"}</Button> }
-				{ state.state === "Paused" && <Button variant="outlined" onClick={ () => command("cancel") }>Abort</Button> }
-				{ state.state === "Paused" && <Button variant="outlined" onClick={ () => command("pause", "resume") }>Resume</Button> }
-				{ state.state === "Pausing" && <Button variant="flat" disabled onClick={ () => command("cancel") }>Abort</Button> }
-				{ state.state === "Pausing" && <Button variant="flat" disabled onClick={ () => command("pause", "pause") }>Pausing</Button> }
-				{ state.state === "Printing" && <Button variant="outlined" onClick={ () => command("cancel") }>Abort</Button> }
-				{ state.state === "Printing" && <Button variant="outlined" onClick={ () => command("pause", "pause") }>Pause</Button> }
+				{ state.state === "Operational" && <Button variant="raised" color="primary" onClick={ () => command("start") }>{ state.progress.completion >= 100 ? "Print again":"Print now"}</Button> }
+				{ state.state === "Paused" && <Button variant="raised" onClick={ () => command("cancel") }>Abort</Button> }
+				{ state.state === "Paused" && <Button variant="raised" onClick={ () => command("pause", "resume") }>Resume</Button> }
+				{ state.state === "Pausing" && <Button disabled onClick={ () => command("cancel") }>Abort</Button> }
+				{ state.state === "Pausing" && <Button disabled onClick={ () => command("pause", "pause") }>Pausing</Button> }
+				{ state.state === "Printing" && <Button variant="raised" onClick={ () => command("cancel") }>Abort</Button> }
+				{ state.state === "Printing" && <Button variant="raised" onClick={ () => command("pause", "pause") }>Pause</Button> }
 
 			</CardActions>
 		</Card>
