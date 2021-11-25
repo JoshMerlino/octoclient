@@ -40,7 +40,7 @@ export default function JobPanel(): JSX.Element {
 	);
 
 	// Calculate length of filament
-	const filamentUsage = Math.ceil(Object.values(state.job.filament)
+	const filamentUsage = Math.ceil(Object.values(state.job.filament ?? { "0": 0 })
 		.map(({ length }) => length)
 		.reduce((a, b) => a + b, 0));
 

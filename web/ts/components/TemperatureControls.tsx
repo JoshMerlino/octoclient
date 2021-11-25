@@ -1,9 +1,16 @@
 import Photon from "photoncss";
-import { Icon, InputField } from "photoncss/lib/react";
+import { Icon, InputField, TextIcon } from "photoncss/lib/react";
 import React from "react";
 
-export type Props = { tool: string, target?: number };
-export default function TemperatureControls({ tool, target }: Props): JSX.Element {
+export type Props = { tool: string, target?: number, flags: Octo.Flags };
+export default function TemperatureControls({ flags, tool, target }: Props): JSX.Element {
+
+	if (!(flags.ready && flags.operational)) return (
+		<div className="temp-controls" style={{ transform: "translate(-48px, 36px)" }}>
+			<TextIcon style={{ position: "absolute", margin: "-4px 0" }} className="error-color material-icons variant-outlined">cancel</TextIcon>
+			<span style={{ paddingLeft: 32, display: "block", transform: "translateY(-2px)"}}>In use</span>
+		</div>
+	);
 
 	// Generate id
 	const id = `temp-${tool}`;

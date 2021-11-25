@@ -38,7 +38,7 @@ export default function TemperatureMonitor({ name: realName, actual, target, sta
 						padding: "1rem",
 						transform: "translateY(8px)"
 					}}>
-						{ state.flags.ready && state.flags.operational && <TemperatureControls tool={realName} target={target}/> }
+						<TemperatureControls flags={state.flags} tool={realName} target={target}/>
 					</span>
 				</div>
 			</div>

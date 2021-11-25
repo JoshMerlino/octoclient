@@ -4,7 +4,6 @@ import { ListItem, TextIcon } from "photoncss/lib/react";
 import prettyBytes from "pretty-bytes";
 import React from "react";
 import api from "runtime/util/api";
-import useAPI from "runtime/util/hooks/useAPI";
 
 export default function File({ display, size, gcodeAnalysis, refs }: Octo.File): JSX.Element {
 
@@ -25,7 +24,7 @@ export default function File({ display, size, gcodeAnalysis, refs }: Octo.File):
 			<TextIcon variant="outlined">description</TextIcon>
 			<span style={{ marginTop: -8, marginLeft: -8, position: "absolute" }}>
 				<h4 style={{ opacity: .54, margin: "0 8px", marginBottom: -4 }}>{ display }</h4>
-				<span style={{ fontSize: 14, margin: "0 8px" }}>{ prettyBytes(size) } • { humanizeDuration(Math.ceil(gcodeAnalysis.estimatedPrintTime * 1000), { largest: 2, maxDecimalPoints: 0 }) }</span>
+				<span style={{ fontSize: 14, margin: "0 8px" }}>{ prettyBytes(size) } • { humanizeDuration(Math.ceil(gcodeAnalysis?.estimatedPrintTime * 1000), { largest: 2, maxDecimalPoints: 0 }) }</span>
 			</span>
 		</ListItem>
 	);
