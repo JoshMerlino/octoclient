@@ -14,7 +14,7 @@ if (PRODUCTION) {
 	// Get server version
 	(function update(): void {
 
-		fetch(`/hash?${Date.now()}`)
+		fetch(`/octoclient/hash?${Date.now()}`)
 			.then(resp => resp.text())
 			.then(server => {
 
