@@ -85,7 +85,7 @@ export = <Configuration>{
 		new HtmlWebpackPlugin({
 			template: "web/index.html",
 			favicon: "web/static/icon.png",
-			base: "/",
+			base: "/octoclient/",
 			templateParameters: {
 				title: manifest.name,
 				description: manifest.description
