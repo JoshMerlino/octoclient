@@ -1,7 +1,7 @@
 import mergeDefaults from "./merge";
 
 export default async function api(path: string, params: RequestInit = {}): Promise<Response> {
-	return await fetch(`https://joshm.us.to/octo/api/${path}`, <RequestInit>mergeDefaults(params, {
+	return await fetch(`https://joshm.us.to/octo${path}`, <RequestInit>mergeDefaults(params, {
 		method: "GET",
 		mode: "cors",
 		headers: {
