@@ -91,7 +91,7 @@ export default function Runtime({ views }: Props): JSX.Element | null {
 						</> : views.map(({ route, default: view }, key) =>
 							<Route
 								key={key}
-								path={route}
+								path={`/octoclient/${route}`}
 								exact={true}
 								component={view as unknown as React.ComponentType}/>
 						) }
