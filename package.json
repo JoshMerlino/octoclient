@@ -37,7 +37,7 @@
 	},
 	"devDependencies": {
 		"@babel/core": "^7.16.0",
-		"@babel/plugin-proposal-class-properties": "^7.8.3",
+		"@babel/plugin-proposal-class-properties": "^7.16.0",
 		"@babel/plugin-transform-runtime": "^7.15.8",
 		"@babel/polyfill": "^7.12.1",
 		"@babel/preset-env": "^7.15.8",
@@ -54,7 +54,7 @@
 		"@types/jquery": "^3.5.8",
 		"@types/mini-css-extract-plugin": "^2.4.0",
 		"@types/mkdirp": "^1.0.2",
-		"@types/node": "^16.11.1",
+		"@types/node": "^16.11.11",
 		"@types/node-fetch": "^2.5.12",
 		"@types/optimize-css-assets-webpack-plugin": "^5.0.4",
 		"@types/prismjs": "^1.16.6",
@@ -118,7 +118,7 @@
 	},
 	"dependencies": {
 		"async-require-context": "^1.8.11",
-		"chalk": "^4.1.2",
+		"chalk": "^5.0.0",
 		"compression": "^1.7.4",
 		"cookie-parser": "^1.4.5",
 		"cors": "^2.8.5",
