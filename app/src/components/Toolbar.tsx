@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
-import { Link } from "react-router-dom";
 import { MdMenu } from "react-icons/md";
+import { Link } from "react-router-dom";
 import { setState } from "./Drawer";
 import ThemeToggle from "./ThemeToggle";
 
@@ -16,7 +16,7 @@ export default function Toolbar({ children, fragment = false }: ToolbarProps): J
 	return (
 		<Wrapper>
 			<div className="flex flex-wrap">
-				<div className="hover:bg-black/10 hover:active:bg-white/10 w-12 h-12 m-2 items-center flex justify-center rounded-full -mr-2 xl:hidden" onClick={ () => setState(true) }>
+				<div className="hover:bg-black/10 hover:active:bg-white/10 w-12 h-12 m-2 items-center flex justify-center rounded-full -mr-2 xl:hidden waves-effect waves-ink" onClick={ () => setState(true) }>
 					<MdMenu className="text-white text-[24px]"/>
 				</div>
 				<h1 className="text-xl text-white leading-[4rem] px-4 select-none">

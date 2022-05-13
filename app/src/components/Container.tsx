@@ -16,6 +16,6 @@ export default function Container({ children }: { children?: ReactNode }): JSX.E
 	});
 
 	return (
-		<div className="bg-gray-200 dark:bg-zinc-800 w-full dark:text-white" style={ { minHeight } }>{ children }</div>
+		<div className="w-full" style={ { minHeight } }>{ children }</div>
 	);
 }
