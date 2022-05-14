@@ -10,7 +10,7 @@ import "styles/index.less";
 import Drawer from "./src/components/Drawer";
 import Footer from "./src/components/Footer";
 import Container from "./src/components/Container";
-import Waves from "./photoncss/src/ts/util/Waves";
+import Waves from "../photoncss/src/ts/util/Waves";
 
 if ("serviceWorker" in navigator && !/localhost/.test(window.location.toString())) registerSW({
 	immediate: true
