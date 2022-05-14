@@ -3,7 +3,7 @@ export default function Footer(): JSX.Element {
 		<footer id="footer">
 			<div className="bg-header">
 				<div className="mx-auto flex max-w-full md:max-w-[80%] w-[1280px] px-12 z-[4]">
-					<div className="py-8">
+					<div className="py-8 font-title">
 						<h1 className="text-4xl pb-2 font-medium text-white">{ APP_MANIFEST.name }</h1>
 						<p className="text-white text-2xl pt-3">{ APP_MANIFEST.description }</p>
 					</div>

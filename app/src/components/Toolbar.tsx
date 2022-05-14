@@ -19,7 +19,7 @@ export default function Toolbar({ children, fragment = false }: ToolbarProps): J
 				<div className="hover:bg-black/10 hover:active:bg-white/10 w-12 h-12 m-2 items-center flex justify-center rounded-full -mr-2 xl:hidden waves-effect waves-ink" onClick={ () => setState(true) }>
 					<MdMenu className="text-white text-[24px]"/>
 				</div>
-				<h1 className="text-xl text-white leading-[4rem] px-4 select-none">
+				<h1 className="text-xl text-white leading-[4rem] px-4 select-none font-title">
 					<Link to="/">{ APP_MANIFEST.name }</Link>
 					{ children && <><span className="opacity-50"> / </span> { children }</> }
 				</h1>

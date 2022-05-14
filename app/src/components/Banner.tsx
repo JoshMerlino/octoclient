@@ -49,7 +49,7 @@ export default function Banner(): JSX.Element {
 				<div className="bg-banner absolute top-0 left-0 w-full h-full" ref={ ref } style={ { transform: `scale(${MAX})`} }></div>
 				<div className="mx-auto flex min-w-[369px] max-w-[80%] lg:max-w-[90%] w-[1280px] z-[4] relative flex-wrap">
 					<img src={ manifest.base + "maskable_icon.svg" } alt="" className="backdrop-blur-lg bg-neutral/60 select-none rounded-full bg-black/10 max-h-[192px] mx-auto lg:mx-4" />
-					<div className="mx-auto lg:mx-14 my-1">
+					<div className="mx-auto lg:mx-14 my-1 font-unisans">
 						<h1 className="text-4xl text-white font-medium py-3 inline-block">{ APP_MANIFEST.name }</h1>
 						<p className="text-white font-unisans text-2xl pt-3">{ APP_MANIFEST.description }</p>
 					</div>
