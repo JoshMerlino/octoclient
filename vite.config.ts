@@ -7,6 +7,7 @@ import { VitePWA } from "vite-plugin-pwa";
 import manifest, { base } from "./app/manifest.json";
 import pjson from "./package.json";
 import yaml from "@rollup/plugin-yaml";
+import requireTransform from "vite-plugin-require-transform";
 
 config();
 
@@ -14,6 +15,7 @@ config();
 export default defineConfig({
 	plugins: [
 		react(),
+		requireTransform({}),
 		VitePWA({
 			srcDir: "app",
 			registerType: "autoUpdate",
