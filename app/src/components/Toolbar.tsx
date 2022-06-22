@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { MdMenu } from "react-icons/md";
 import { Link } from "react-router-dom";
+import f from "../util/translation";
 import { setState } from "./Drawer";
 import ThemeToggle from "./ThemeToggle";
 
@@ -20,7 +21,7 @@ export default function Toolbar({ children, fragment = false }: ToolbarProps): J
 					<MdMenu className="text-white text-[24px]"/>
 				</div>
 				<h1 className="text-xl text-white leading-[4rem] px-4 select-none font-title">
-					<Link to="/">{ APP_MANIFEST.name }</Link>
+					<Link to="/">{ f("name") }</Link>
 					{ children && <><span className="opacity-50"> / </span> { children }</> }
 				</h1>
 				<div className="p-2 ml-auto">

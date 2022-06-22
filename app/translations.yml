@@ -1,0 +1,4 @@
+my.translation.key: 'Translated Value'
+# To access these keys from your script, use:
+# import f from "../util/translation";
+# f("my.translation.key") => 'Translated Value'

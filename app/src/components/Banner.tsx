@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import manifest from "../../manifest.json";
+import f from "../util/translation";
 import Toolbar from "./Toolbar";
 
 export default function Banner(): JSX.Element {
@@ -50,8 +51,8 @@ export default function Banner(): JSX.Element {
 				<div className="mx-auto flex min-w-[369px] max-w-[80%] lg:max-w-[90%] w-[1280px] z-[4] relative flex-wrap">
 					<img src={ manifest.base + "maskable_icon.svg" } alt="" className="backdrop-blur-lg bg-neutral/60 select-none rounded-full bg-black/10 max-h-[192px] mx-auto lg:mx-4" />
 					<div className="mx-auto lg:mx-14 my-1 font-unisans">
-						<h1 className="text-4xl text-white font-medium py-3 inline-block">{ APP_MANIFEST.name }</h1>
-						<p className="text-white font-unisans text-2xl pt-3">{ APP_MANIFEST.description }</p>
+						<h1 className="text-4xl text-white font-medium py-3 inline-block">{ f("name") }</h1>
+						<p className="text-white font-unisans text-2xl pt-3">{ f("description") }</p>
 					</div>
 				</div>
 				<div className="absolute bottom-0 left-0 w-full min-h-16" id="toolbar">

@@ -6,6 +6,7 @@ import htmlPlugin from "vite-plugin-html-config";
 import { VitePWA } from "vite-plugin-pwa";
 import manifest, { base } from "./app/manifest.json";
 import pjson from "./package.json";
+import yaml from "@rollup/plugin-yaml";
 
 config();
 
@@ -31,7 +32,8 @@ export default defineConfig({
 				rel: "apple-touch-icon",
 				href: base + "/apple_touch_icon.png"
 			} ]
-		})
+		}),
+		yaml()
 	],
 	base,
 	define: {
