@@ -1,4 +1,5 @@
-import defaultTranslations from "../../translations.yml";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const defaultTranslations = require("../../translations.yml");
 const translations = { ...APP_MANIFEST, ...defaultTranslations };
 
 export default function f(key: string): string {
