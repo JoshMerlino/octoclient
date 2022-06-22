@@ -8,5 +8,3 @@ export default function f(key: string): string {
 	if (translated === undefined) return key;
 	return translated;
 }
-
-console.log(f("name"), translations);
