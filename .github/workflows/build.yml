@@ -24,10 +24,11 @@ jobs:
         run: '[ -e "./package-lock.json" ] && npm ci || npm install'
         
       - name: Build Site
-        run: 'vite build'
+        run: 'npm run build-ui'
         
       - name: Upload Static Content
         uses: actions/upload-artifact@v3.1.0
         with:
+          name: 'public_html'
           path: './public_html'
           
