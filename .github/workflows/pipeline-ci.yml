@@ -21,8 +21,6 @@ jobs:
       # Install npm modules
       - name: NPM or Yarn install with caching
         uses: bahmutov/npm-install@v1.6.0
-        with:
-          useLockFile: true
         
       # Attempt to build
       - name: Build
