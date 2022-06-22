@@ -8,24 +8,23 @@ on:
     - next
 
 jobs:
-  run:
+  build:
     runs-on: ubuntu-latest
     steps:
     
-      # Configure Node.js environment
-      - name: Setup Node.js environment
+      # Configure Node.js
+      - name: Configure Node.js
         uses: actions/setup-node@v3.3.0
         with:
           node-version: '17'
           
-      # Install npm modules
-      - name: NPM or Yarn install with caching
-        uses: bahmutov/npm-install@v1.6.0
+      # NPM Install
+      - name: NPM Install
+        run: '[ -e "./package-lock.json" ] && npm ci || npm install '
         
-      # Attempt to build
+      # Build
       - name: Build
-        run: |
-          npm run build
+        run: 'npm run build --if-present'
        
       # Get build output
       - name: Upload a Build Artifact
