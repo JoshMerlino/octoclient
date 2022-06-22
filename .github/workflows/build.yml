@@ -11,6 +11,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      
+      # Checkout
+      - name: Checkout
+        uses: actions/checkout@v2.4.2
     
       # Configure Node.js
       - name: Configure Node.js
@@ -20,7 +24,7 @@ jobs:
           
       # NPM Install
       - name: NPM Install
-        run: '[ -e "./package-lock.json" ] && npm ci || npm install '
+        run: '[ -e "./package-lock.json" ] && npm ci || npm install'
         
       # Build
       - name: Build
