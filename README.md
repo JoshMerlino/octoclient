@@ -7,4 +7,5 @@
 ## Getting Started
 ```bash
 git clone https://github.com/JoshMerlino/base -b master --single-branch -o upstream (my-app)
+git submodule update --init --recursive
 ```
