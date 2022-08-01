@@ -132,7 +132,7 @@
 		"mkdirp": "^1.0.4",
 		"mysql-promise": "^5.0.0",
 		"mysql2": "^2.3.3",
-		"node-fetch": "^3.2.9",
+		"node-fetch": "^3.2.10",
 		"pretty-bytes": "^6.0.0",
 		"promise-mysql": "^5.2.0",
 		"uuid": "^8.3.2",
