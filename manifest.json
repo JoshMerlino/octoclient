@@ -1,0 +1,81 @@
+{
+  "icons": [
+    {
+      "src": "static/icon_512x512.9c68dfc5699c2d8aa052ca487886f42d.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "static/icon_384x384.9475980e75dc802513baa03184591dab.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "static/icon_256x256.6dabafb0fefc40b2de69fa24506a8971.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "static/icon_192x192.58fd40980141712e8f28be06c8296628.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "static/icon_128x128.6b3f04c5d7558ae580fd14a75dc27f0e.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "static/icon_96x96.8bb6007a6e252bc6d0294c457c39e736.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "static/icon_512x512.9c68dfc5699c2d8aa052ca487886f42d.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "static/icon_384x384.9475980e75dc802513baa03184591dab.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "static/icon_256x256.6dabafb0fefc40b2de69fa24506a8971.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "static/icon_192x192.58fd40980141712e8f28be06c8296628.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "static/icon_128x128.6b3f04c5d7558ae580fd14a75dc27f0e.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "static/icon_96x96.8bb6007a6e252bc6d0294c457c39e736.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "name": "OctoClient",
+  "short_name": "OctoClient",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "version": "1.0.0",
+  "description": "A modern control panel for managing your 3D printers using OctoPrint.",
+  "developerName": "Josh Merlino",
+  "developerURL": "https://joshmerlino.github.io",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff"
+}
