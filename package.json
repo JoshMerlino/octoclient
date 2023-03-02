@@ -129,7 +129,7 @@
 		"filestore-json": "^1.1.8",
 		"http": "0.0.1-security",
 		"https": "^1.0.0",
-		"mkdirp": "^2.1.3",
+		"mkdirp": "^2.1.4",
 		"mysql-promise": "^5.0.0",
 		"mysql2": "^3.1.2",
 		"node-fetch": "^3.2.10",
