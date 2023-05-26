@@ -136,6 +136,6 @@
 		"pretty-bytes": "^6.1.0",
 		"promise-mysql": "^5.2.0",
 		"uuid": "^9.0.0",
-		"yaml": "^2.3.0"
+		"yaml": "^2.3.1"
 	}
 }
