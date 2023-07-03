@@ -54,7 +54,7 @@
 		"@types/jquery": "^3.5.16",
 		"@types/mini-css-extract-plugin": "^2.4.0",
 		"@types/mkdirp": "^2.0.0",
-		"@types/node": "^20.3.2",
+		"@types/node": "^20.3.3",
 		"@types/node-fetch": "^2.6.2",
 		"@types/optimize-css-assets-webpack-plugin": "^5.0.5",
 		"@types/prismjs": "^1.26.0",
