@@ -131,7 +131,7 @@
 		"https": "^1.0.0",
 		"mkdirp": "^3.0.1",
 		"mysql-promise": "^5.0.0",
-		"mysql2": "^3.5.0",
+		"mysql2": "^3.5.1",
 		"node-fetch": "^3.2.10",
 		"pretty-bytes": "^6.1.0",
 		"promise-mysql": "^5.2.0",
