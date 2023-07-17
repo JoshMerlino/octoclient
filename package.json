@@ -133,7 +133,7 @@
 		"mysql-promise": "^5.0.0",
 		"mysql2": "^3.5.1",
 		"node-fetch": "^3.2.10",
-		"pretty-bytes": "^6.1.0",
+		"pretty-bytes": "^6.1.1",
 		"promise-mysql": "^5.2.0",
 		"uuid": "^9.0.0",
 		"yaml": "^2.3.1"
