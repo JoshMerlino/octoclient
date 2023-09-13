@@ -135,7 +135,7 @@
 		"node-fetch": "^3.2.10",
 		"pretty-bytes": "^6.1.1",
 		"promise-mysql": "^5.2.0",
-		"uuid": "^9.0.0",
+		"uuid": "^9.0.1",
 		"yaml": "^2.3.2"
 	}
 }
